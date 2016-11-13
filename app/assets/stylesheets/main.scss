@@ -1,15 +1,171 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 body {
-  padding-top: 60px;
+  background-color: #F3F2EE;
 }
 
-section {
-  overflow: auto;
+.container-fluid {
+  margin: 0px;
+  padding: 0px;
+}
+
+.full-height {
+  height: 100vh;
 }
 
 .center {
   text-align: center;
 }
 
+// text
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-family: 'Inconsolata', monospace;
+  color: #2B2B2B;
+  font-size: 1.125em;
+}
+
+.heading {
+  color: #FE4C52;
+}
+
+// navbar
+.navbar {
+  font-family: 'Montserrat', sans-serif;
+  ul {
+    margin:0px;
+  }
+  a {
+    color: #2B2B2B;
+    font-size: 1.5em;
+  }
+}
+
+// home
+.home-container {
+  background: image_url('main-image.png');
+  -webkit-background-size: cover;
+  background-size: cover;
+  position: relative;
+}
+
+.logo-img {
+  position: fixed;
+  height: 300px;
+  left: 35%;
+  top: 10%;
+}
+
+.layer-img {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width:100%;
+}
+
+// about + video
+.about-container {
+  background: image_url('about.png');
+  -webkit-background-size: cover;
+  background-size: cover;
+  flex-wrap: wrap;
+}
+
+.row {
+  display: flex;
+  position: relative;
+  margin-right:0px;
+  margin-left:0px;
+}
+
+.col-sm-4 {
+  float: none;
+}
+
+.extra-height {
+  height: 200vh;
+}
+
+.video-container {
+  align-items: center;
+}
+
+.video-img {
+  height: 400px;
+  width:100%;
+  -webkit-box-shadow: 8px 14px 18px 2px;
+  -moz-box-shadow: 8px 14px 18px 2px;
+  box-shadow: 8px 14px 18px 2px;
+}
+
+//Featured
+.featured-container {
+  display: flex;
+  background: image_url('featured.png');
+  -webkit-background-size: cover;
+  background-size: cover;
+  .col-sm-4 {
+    align-self: center;
+    p {
+    color:#ffffff;
+    }
+  }
+}
+
+//Options
+.options-container {
+  background: image_url('sections.png');
+  -webkit-background-size: cover;
+  background-size: cover;
+  justify-content: center;
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+}
+
+.tile-img {
+  height: 425px;
+  width: 100%;
+}
+
+
+@media screen and (max-width:960px) {
+  .extra-height {
+    height: auto;
+  }
+  .options-container {
+    flex-wrap: wrap;
+  }
+  .tile-img {
+    height: 354px;
+  }
+  .logo-img {
+    top: 10%;
+  }
+}
+
+@media screen and (max-width:750px) {
+  .tile-img {
+    height: 195px;
+  }
+  .logo-img {
+    height: 200px;
+    left:20%;
+    top: 30%;
+  }
+  .tile {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .options-container {
+    height: auto;
+  }
+}
