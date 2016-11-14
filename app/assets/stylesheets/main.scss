@@ -19,6 +19,13 @@ body {
   text-align: center;
 }
 
+.alert {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
 // text
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
@@ -124,16 +131,94 @@ p {
   -webkit-background-size: cover;
   background-size: cover;
   justify-content: center;
+  align-items: center;
 }
 
 .tile {
   display: flex;
-  align-items: center;
+  align-content: center;
+  height: 395px;
+  max-width: 425px;
+  padding: 0px;
+  margin: 0px 15px;
+  position:relative;
+  cursor:pointer;
+  transition: all 0.4s ease-out;
+  overflow:hidden;
+  &:hover {
+  transform:scale(1.05);
+  background-color: #FE4C52;
+    img {
+      opacity: 0.2;
+    }
+    .animate-txt {
+      transform:translateX(0);
+      opacity:1;
+    }
+    .icon {
+      display: none;
+    }
+  }
+  h3 {
+    -webkit-transform: translateX(200px);
+    -moz-transform: translateX(200px);
+    -ms-transform: translateX(200px);
+    -o-transform: translateX(200px);
+    transform: translateX(200px);
+  }
+  p {
+    -webkit-transform: translateX(-200px);
+    -moz-transform: translateX(-200px);
+    -ms-transform: translateX(-200px);
+    -o-transform: translateX(-200px);
+    transform: translateX(-200px);
+    -webkit-transition-delay: 0.2s;
+    -moz-transition-delay: 0.2s;
+    -ms-transition-delay: 0.2s;
+    -o-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+  }
+}
+
+.animate-txt
+{
+  opacity:0;
+  transition: all 0.6s ease-in-out;
+}
+
+.box-txt {
+  position:absolute;
+  padding:30px;
+  height:calc(100% - 60px);
+  height:calc(100% - 60px);
 }
 
 .tile-img {
-  height: 425px;
+  height: 100%;
   width: 100%;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:0;
+  transition: all 0.4s ease-out;
+}
+
+.icon {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+}
+
+//footer on home page
+.footer-home {
+  background: image_url('footer.png');
+  -webkit-background-size: cover;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -162,8 +247,8 @@ p {
     top: 30%;
   }
   .tile {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    height: 195px;
+    margin:15px;
   }
   .options-container {
     height: auto;
