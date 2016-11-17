@@ -18,12 +18,18 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      # Handle a successful save.
-    else
-      render 'users/_new'
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to root_path }
+        format.js 
+      else
+        format.html { render action: 'new' }
+        format.json { redirect_to new_user_path, status: :unprocessable_entity }
+        format.js   { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
+
   
   private
 
