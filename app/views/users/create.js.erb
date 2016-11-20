@@ -1,2 +1,6 @@
-$("#modal").update("<%=j (render 'users/create') %>");
-
+<% if @user.errors.any? %>
+  $("#errors").html("<%= escape_javascript(render 'shared/error_messages') %>");
+<% else %>
+  $('#modal').modal('hide');
+  $(".form-control").val('');
+<% end %>
