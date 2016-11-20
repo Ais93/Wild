@@ -13,18 +13,16 @@
   <body>
     <%= render 'layouts/header' %>
      <div class="container-fluid">
-        <% if notice %>
-          <p class="alert alert-success"><%= notice %></p>
-        <% end %>
-        <% if alert %>
-          <p class="alert alert-danger"><%= alert %></p>
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
         <% end %>
         <%= yield %>
     </div>
     <!--<%= render 'layouts/footer' %>-->
   </body>
   <div class="modal fade" id="modal" tabindex="-1" role="dialog">
-    
+  </div>
+  <div class="modal fade" id="modal1" tabindex="-1" role="dialog">
   </div>
 
 </html>
