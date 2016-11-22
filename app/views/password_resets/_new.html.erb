@@ -1,0 +1,17 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1>Forgot password</h1>
+      </div>
+
+      <div class="modal-body">
+        <div id="errors"></div>
+        <%= form_for(:password_reset, url: password_resets_path, remote: true) do |f| %>
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
+    
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+</div>
