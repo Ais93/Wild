@@ -49,7 +49,9 @@ Location.create!(name: "Westmeath")
 Location.create!(name: "Wexford")
 Location.create!(name: "Wicklow")
 
-
+Category.create!(name: "Beginner")
+Category.create!(name: "Intermediate")
+Category.create!(name: "Advanced")
 
 
 
