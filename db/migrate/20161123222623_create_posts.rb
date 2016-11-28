@@ -5,8 +5,6 @@ class CreatePosts < ActiveRecord::Migration[5.0]
       t.text :description
       t.text :other
       t.references :user, foreign_key: true
-
-
       t.timestamps
     end
     add_index :posts, [:user_id, :created_at]
