@@ -5,8 +5,7 @@ class CreatePosts < ActiveRecord::Migration[5.0]
       t.text :description
       t.text :other
       t.references :user, foreign_key: true
-      t.references :category, foreign_key: true
-      t.references :location, foreign_key: true
+
 
       t.timestamps
     end
