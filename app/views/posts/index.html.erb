@@ -1,8 +1,8 @@
 <% @posts.each do |post| %>
-  <h1><%= post.name %></h1>
-
-<p><%= post.description %></p>
-<p><%= post.category.name %></p>
-<p><%= post.location.name %></p>
-<p><%= post.other %></p>
+    <h1><%= post.name %></h1>
+    <%= image_tag post.picture.url if post.picture? %>
+    <p><%= post.description %></p>
+    <p><%= post.category.name %></p>
+    <p><%= post.location.name %></p>
+    <p><%= post.other %></p>
 <% end %>

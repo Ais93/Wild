@@ -1,6 +1,5 @@
 <h1><%= @post.name %></h1>
-
+<%= image_tag @post.picture.url if @post.picture? %>
 <p><%= @post.description %></p>
 <p><%= @post.other %></p>
-
 

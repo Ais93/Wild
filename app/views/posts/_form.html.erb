@@ -1,9 +1,10 @@
-<%= simple_form_for @post do |f| %>
+<%= simple_form_for @post, html: {multipart: true} do |f| %>
   <%= f.input :name, label: 'Name', error: 'Name required' %>
   <%= f.input :description, label: 'Description', error: 'Description required' %>
   <%= f.input :other, label: 'Tips and Advice' %>
   <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category" }, input_html: { class: "dropdown-toggle" } %>
   <%= f.collection_select :location_id, Location.all, :id, :name, {prompt: "Choose a county" }, input_html: { class: "dropdown-toggle" } %>
+  <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
   <%= f.button :submit %>
 <% end %>
 
