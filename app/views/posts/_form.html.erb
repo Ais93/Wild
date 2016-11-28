@@ -1,9 +1,9 @@
 <%= simple_form_for @post do |f| %>
-  <%= f.input :name, label: 'Your username please', error: 'Username is mandatory, please specify one' %>
-  <%= f.input :description, hint: 'No special characters.' %>
-  <%= f.input :other, placeholder: 'user@domain.com' %>
-  <%= f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a category" }, input_html: { class: "dropdown-toggle" } %>
-  <%= f.collection_select :location_id, Location.all, :id, :name, {promt: "Choose a county" }, input_html: { class: "dropdown-toggle" } %>
+  <%= f.input :name, label: 'Name', error: 'Name required' %>
+  <%= f.input :description, label: 'Description', error: 'Description required' %>
+  <%= f.input :other, label: 'Tips and Advice' %>
+  <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category" }, input_html: { class: "dropdown-toggle" } %>
+  <%= f.collection_select :location_id, Location.all, :id, :name, {prompt: "Choose a county" }, input_html: { class: "dropdown-toggle" } %>
   <%= f.button :submit %>
 <% end %>
 

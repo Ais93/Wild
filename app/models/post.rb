@@ -8,4 +8,8 @@ class Post < ApplicationRecord
   validates :description, presence: true
   validates :category_id, presence: true
   validates :location_id, presence: true
+  
+  def self.search(search)
+    where("name LIKE ? OR description LIKE ? OR other LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%") 
+  end
 end

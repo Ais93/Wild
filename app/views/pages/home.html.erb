@@ -39,33 +39,17 @@
 </div>
 
 <div class="row full-height options-container">
-    <div class="col-md-4 col-sm-6 col-xs-8 tile">
-        <%= image_tag("adventure-wood.png", class: "tile-img" )%>
-        <%= image_tag("icons/tent.png", class: "icon")%>
-        <div class="box-txt">
-            <h3 class="animate-txt">Adventure 1</h3>
-            <p class ="animate-txt">Lorem ipsum dolor sit amet,
-            consectetuer adipiscing elit. </p>
+    <% Category.all.each do |category| %>
+        <div class="col-md-4 col-sm-6 col-xs-8 tile">
+            <%= image_tag("adventure-wood.png", class: "tile-img" )%>
+            <%= image_tag("icons/tent.png", class: "icon")%>
+            <div class="box-txt">
+                <h3 class="animate-txt"><%= link_to category.name, posts_path(category: category.name) %></h3>
+                <p class ="animate-txt">Lorem ipsum dolor sit amet,
+                consectetuer adipiscing elit. </p>
+            </div>
         </div>
-    </div>
-    <div class="col-md-4 col-sm-6 col-xs-8  tile">
-        <%= image_tag("adventure-river.png", class: "tile-img" )%>
-        <%= image_tag("icons/canoe.png", class: "icon")%>
-        <div class="box-txt">
-            <h3 class="animate-txt">Adventure 1</h3>
-            <p class ="animate-txt">Lorem ipsum dolor sit amet,
-            consectetuer adipiscing elit. </p>
-        </div>
-    </div>
-    <div class="col-md-4 col-sm-6 col-xs-8 tile">
-        <%= image_tag("adventure-mount.png", class: "tile-img" )%>
-        <%= image_tag("icons/mountains.png", class: "icon")%>
-        <div class="box-txt">
-            <h3 class="animate-txt">Adventure 1</h3>
-            <p class ="animate-txt">Lorem ipsum dolor sit amet,
-            consectetuer adipiscing elit. </p>
-        </div>
-    </div>
+    <% end %>
 </div>
 
 <div class="row full-height footer-home">
