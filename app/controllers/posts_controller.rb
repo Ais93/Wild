@@ -6,21 +6,20 @@ class PostsController < ApplicationController
     end
     
     def index
-        if params[:category].blank?
-            @posts = Post.all
-        else
-            @category_id = Category.find_by(name: params[:category]).id
-            @posts = Post.where(category_id: @category_id)
-        end
-        if params[:search]
-            @posts = Post.search(params[:search]).order("created_at DESC")
-        else
-            @posts = Post.all.order("created_at DESC")
-        end
+      if params[:category].blank?
+        @posts = Post.all
+      else
+        @category_id = Category.find_by(name: params[:category]).id
+        @posts = Post.where(category_id: @category_id)
+      end
+      if params[:search]
+        @posts = Post.search(params[:search]).order("created_at DESC")
+      end
     end
     
     def show
-       @post = Post.find(params[:id])
+      @post = Post.find(params[:id])
+      @related_posts = Post.where("id != '#{@post.id}'").where("location_id = '#{@post.location.id}'")
     end
     
     def create

@@ -1,5 +1,14 @@
-<h1><%= link_to post.name, post_path(post) %></h1>
-
-<%= link_to "delete", post, method: :delete,
-                                       data: { confirm: "You sure?" } %>
-<%= link_to "Edit", edit_post_path(post) %>
+<div class="posts">
+  <div class="img-post">
+    <%= link_to image_tag(post.picture.url, :class => "img_preview"), post_path(post) %>
+    <div class="hidden-info">
+      <span class="title"><%= link_to post.name, post_path(post) %>, <%= post.location.name %></span>
+      <span class="info"><%= post.user.name %></span>
+    </div>
+  </div>
+  <% if current_user?(@user) %>
+    <%= link_to "Edit", edit_post_path(post) %>
+    <%= link_to "Delete", post, method: :delete,
+        data: { confirm: "You sure?" } %>
+  <% end %>                                      
+</div>

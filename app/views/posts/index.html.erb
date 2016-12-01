@@ -1,8 +1,10 @@
-<% @posts.each do |post| %>
-    <h1><%= post.name %></h1>
-    <%= image_tag post.picture.url if post.picture? %>
-    <p><%= post.description %></p>
-    <p><%= post.category.name %></p>
-    <p><%= post.location.name %></p>
-    <p><%= post.other %></p>
-<% end %>
+<div class="row background">
+  <div class="post-index col-md-10">
+    <% if @posts.empty? %>
+      <h3>Sorry no results</h3>
+    <% else %>
+      <h1 class="center">Find Your Next Adventure</h1>
+      <%= render @posts %>
+    <% end %>
+  </div>
+</div>

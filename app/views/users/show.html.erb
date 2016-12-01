@@ -1,22 +1,18 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
+<div class="row container-fluid background">
+  <div class="col-md-10 col-sm-10 col-xs-12 profile-container">
+    <section class="cover"></section>
     <section class="user_info">
-      <h1>
-        <%= @user.name %>
-      </h1>
+      <h4><%= @user.name %></h4>
+      <h4>Posts (<%= @user.posts.count %>)</h4>
       <% if current_user?(@user) %>
-      <%= link_to "Settings", edit_user_path(current_user) %>
-      <%= link_to "New Post", new_post_path %>
+      <h4><%= link_to "Upload", new_post_path %></h4>
       <% end %>
     </section>
-  </aside>
-  <div class="col-md-8">
-    <% if @user.posts.any? %>
-      <h3>Posts (<%= @user.posts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @posts %>
-      </ol>
-    <% end %>
+    <div class="row post-container">
+      <% if @user.posts.any? %>
+          <%= render @posts %>
+      <% end %>
+    </div>
   </div>
 </div>

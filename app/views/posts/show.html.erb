@@ -1,5 +1,39 @@
-<h1><%= @post.name %></h1>
-<%= image_tag @post.picture.url if @post.picture? %>
-<p><%= @post.description %></p>
-<p><%= @post.other %></p>
+<div class="row container-fluid background">
+  <div class="col-md-10 col-sm-10 col-xs-12 profile-container">
+    <section class="cover"><%= image_tag @post.picture.url if @post.picture? %></section>
+    <section class="row column">
+      <div class="col-md-10 col-sm-10 col-xs-12" style="margin:auto;">
+        <div class="col-md-8 post_info">
+          <div>
+          <h2><%= @post.name %>,</h2><h2 class="light"><%= @post.location.name %></h2>
+          </div class="row">
+          <h6><%=link_to @post.user.name, user_path(@post.user_id) %></h6>
+          <p><%= @post.description %></p>
+          <h3>Advice & Tips</h3>
+            <ul>
+              <li><%= @post.other %></li>
+            </ul>
+        </div>
+      </div>
+      <div class="container-fluid">
+          <h3 class="center">Related Posts</h3>
+          <% @related_posts.each do |post| %>
+          <div class="row post-container">
+            <div class="posts">
+              <div class="img-post">
+                <%= link_to image_tag(post.picture.url, :class => "img_preview"), post_path(post) %>
+                <div class="hidden-info">
+                  <span class="title"><%= link_to post.name, post_path(post) %>, <%= post.location.name %></span>
+                  <span class="info"><%= post.user.name %></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+    </section>
+  </div>
+</div>
+
+                        
 
