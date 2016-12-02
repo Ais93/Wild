@@ -1,5 +1,9 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
+  has_many :interests, dependent: :destroy
+  accepts_nested_attributes_for :interests,
+    :allow_destroy => true,
+    :reject_if     => :all_blank
   attr_accessor :remember_token, :activation_token, :reset_token   
   before_save { self.email = email.downcase }
   before_create :create_activation_digest

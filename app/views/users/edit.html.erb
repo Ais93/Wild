@@ -1,26 +1,39 @@
 <% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
-    <% end %>
-    <%= link_to "delete", @user, method: :delete,
-                                  data: { confirm: "You sure?" } %>
+<div class="row container-fluid background">
+  <div class="col-md-8 col-sm-10 col-xs-12 profile-container form-container">
+    <h1 class="center heading">Update your profile</h1>
+    <div class="row edit-form">
+        <%= form_for @user do |f| %>
+        <%= render 'shared/error_messages' %>
+        <div>
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control' %>
+          
+          <%= f.label :"About You" %>
+          <%= f.text_field :bio, class: 'form-control' %>
+          
+          <%= f.nested_fields_for :interests do |ff| %>
+          <%= ff.label :interests %>
+          <%= ff.text_field :name, class: 'form-control' %>
+          <%= ff.remove_nested_fields_link %>
+          <% end %>
+          <%= f.add_nested_fields_link :interests %>
+        </div>
+        <div>
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
+        
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+        
+          <%= f.label :password_confirmation, "Confirmation" %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        
+          <%= f.submit "Save changes", class: "btn btn-primary" %>
+          <% end %>
+          <%= link_to "Delete Your Account", @user, method: :delete,
+                                          data: { confirm: "You sure?" } %>
+        </div>                               
+    </div>
   </div>
 </div>

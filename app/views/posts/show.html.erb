@@ -1,18 +1,15 @@
 <div class="row container-fluid background">
   <div class="col-md-10 col-sm-10 col-xs-12 profile-container">
-    <section class="cover"><%= image_tag @post.picture.url if @post.picture? %></section>
     <section class="row column">
-      <div class="col-md-10 col-sm-10 col-xs-12" style="margin:auto;">
+      <div class="col-md-10 col-sm-10 col-xs-12" style="margin:0px auto;">
         <div class="col-md-8 post_info">
-          <div>
-          <h2><%= @post.name %>,</h2><h2 class="light"><%= @post.location.name %></h2>
+          <div class="row">
+          <h2><%= @post.name %>,</h2><h2 class="light"> <%= @post.location.name %></h2>
           </div class="row">
           <h6><%=link_to @post.user.name, user_path(@post.user_id) %></h6>
           <p><%= @post.description %></p>
           <h3>Advice & Tips</h3>
-            <ul>
-              <li><%= @post.other %></li>
-            </ul>
+            <p><%= @post.other %></p>
         </div>
       </div>
       <div class="container-fluid">

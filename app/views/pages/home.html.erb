@@ -26,18 +26,22 @@
 </div>
 
 <div class="row full-height featured-container">
-    <div class="col-sm-4 col-sm-offset-2 col-xs-12">
-        <h2 class="heading">Featured</h2>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-        Aenean commodo ligula eget dolor. Aenean massa. Cum sociis 
-        natoque penatibus et magnis dis parturient montes, nascetur
-        ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-        eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+    <div class="col-sm-10 col-xs-12">
+        <h2 class="heading">Have a Look at Some of Our Featured Posts</h2>
+        <% Post.all.sample(4).each do |p| %>
+          <div class="img-post col-md-3 col-sm-3 col-xs-4">
+            <%= link_to image_tag(p.picture.url, :class => "img_preview"), post_path(p) %>
+            <div class="hidden-info">
+              <span class="title"><%= link_to p.name, post_path(p) %>, <%= p.location.name %></span>
+              <span class="info"><%= p.user.name %></span>
+            </div>
+          </div>
+        <% end %>
     </div>
 </div>
 
 <div class="row full-height options-container">
-  <h2 class="heading">Choose Your Level of Activity and Get Started</h2>
+  <h2 class="heading">Or Choose Your Level of Activity and Get Started</h2>
   <div class="col-md-3 col-sm-6 col-xs-8 tile">
     <%= image_tag("adventure-wood.png", class: "tile-img" )%>
     <%= image_tag("icons/tent.png", class: "icon wood")%>
@@ -75,17 +79,6 @@
   </div>
 </div>
 
-<div class="row full-height footer-home">
-    <div class="col-sm-4 col-sm-offset-2 col-xs-12">
-        <h2 class="heading">Contact</h2>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-        Aenean commodo ligula eget dolor. Aenean massa. Cum sociis 
-        natoque penatibus et magnis dis parturient montes, nascetur
-        ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-        eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-    </div>
-
-</div>
 
 
 

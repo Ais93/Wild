@@ -1,3 +1,8 @@
-<h1>New Post</h1>
+<%= provide(:title, "Upload") %>
+<div class="row container-fluid background">
+  <div class="col-md-8 col-sm-10 col-xs-12 profile-container form-container">
+    <h1 class="center heading">Upload Your Own Hidden Gem</h1>
+    <%= render 'form' %>
+  </div>
+</div>
 
-<%= render 'form' %>

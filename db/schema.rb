@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128211843) do
+ActiveRecord::Schema.define(version: 20161201141408) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_interests_on_user_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -34,6 +42,7 @@ ActiveRecord::Schema.define(version: 20161128211843) do
     t.string   "picture"
     t.integer  "location_id"
     t.integer  "category_id"
+    t.string   "bio"
     t.index ["category_id"], name: "index_posts_on_category_id"
     t.index ["location_id"], name: "index_posts_on_location_id"
     t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
@@ -52,6 +61,7 @@ ActiveRecord::Schema.define(version: 20161128211843) do
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.boolean  "admin",             default: false
+    t.string   "bio"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
